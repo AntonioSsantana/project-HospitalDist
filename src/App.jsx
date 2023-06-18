@@ -1,5 +1,16 @@
+// Components
+import {
+  CFooter, CHeader
+} from './components/index';
+
 export default function App() {
   return (
-   <h1>App</h1>
+    <div>
+      <CHeader />
+      <main>
+        
+      </main>
+      <CFooter />
+    </div>
   );
 }
