@@ -8,7 +8,6 @@ export default function App() {
     <div>
       <CHeader />
       <main>
-        
       </main>
       <CFooter />
     </div>

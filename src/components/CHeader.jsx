@@ -1,3 +1,6 @@
+// Components
+import { CNavegation } from './index';
+
 export default function CHeader() {
   return (
     <header>
@@ -24,24 +27,25 @@ export default function CHeader() {
         <p>Atendimento</p>
       </a>
       <a
-      href="/u/account"
+        href="/u/account"
       >
-        <img 
-        src="https://www.pngmart.com/files/21/Account-User-PNG-Photo.png"
-        alt="minha conta"
-        width="35px"
+        <img
+          src="https://www.pngmart.com/files/21/Account-User-PNG-Photo.png"
+          alt="minha conta"
+          width="35px"
         />
         <p>Minha Conta</p>
       </a>
       <a
-      href="/u/cart"
+        href="/u/cart"
       >
-       <img 
-       src="https://www.freeiconspng.com/uploads/shopping-cart-icon-30.png"
-       alt="carrinho"
-       width="35px"
-       />
+        <img
+          src="https://www.freeiconspng.com/uploads/shopping-cart-icon-30.png"
+          alt="carrinho"
+          width="35px"
+        />
       </a>
+      <CNavegation />
     </header>
   );
 }
