@@ -1,17 +1,19 @@
+import React from 'react';
+
 // Components
 import {
   CFooter, CHeader
 } from './components/index';
 
 // Mock
-import materiais from './mock';
+import productsMock from './mock';
 
 export default function App() {
   return (
     <div>
       <CHeader />
       <main>
-        {materiais.map((m, index) => {
+        {productsMock.map((m, index) => {
           return (<article
             key={index}
           >
@@ -19,7 +21,7 @@ export default function App() {
             <img src={m.image} alt={m.name} width="50px" />
             <span>{`R$ ${m.price.toFixed(2).toString().replace('.', ',')}`}</span>
           </article>
-          )
+          );
         })}
       </main>
       <CFooter />

@@ -1,3 +1,5 @@
+import React from 'react';
+
 // Components
 import { CNavegation } from './index';
 
