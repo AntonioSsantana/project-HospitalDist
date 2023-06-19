@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 // Components
 import {
-  CFooter, CHeader
+  CFooter, CHeader, CNavegation
 } from './components/index';
 
 // Mock
@@ -11,6 +11,7 @@ import productsMock from './mock';
 export default function App() {
 
   const [products, setProducts] = useState([]);
+  const [selectedType, setType] = useState('');
 
   useEffect(() => {
     try {
@@ -25,6 +26,10 @@ export default function App() {
   return (
     <div>
       <CHeader />
+      <CNavegation
+        selectedType={selectedType} 
+        setType={setType}
+      />
       <main>
         {products.map((p, index) => {
           return (<article
@@ -38,6 +43,7 @@ export default function App() {
         })}
       </main>
       <CFooter />
+      {console.log(selectedType)}
     </div>
   );
 }

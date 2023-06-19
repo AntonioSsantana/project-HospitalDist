@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 // Mock
 import productsMock from '../mock';
 
-export default function CNavegation() {
+export default function CNavegation({ setType }) {
   const [productTypes, setProductsTypes] = useState([]);
 
   useEffect(() => {
@@ -17,19 +18,45 @@ export default function CNavegation() {
     }
   }, []);
 
+  const onClickFunction = ({ target }) => {
+    const { outerText } = target;
+
+    switch (outerText) {
+    case 'Pressão':
+      setType(outerText);
+      break;
+    case 'Equipo':
+      setType(outerText);
+      break;
+    case 'Luvas':
+      setType(outerText); 
+      break;
+    case 'Seringa':
+      setType(outerText);
+      break;
+    default:
+      break;
+    }
+  };
+
   return (
     <nav>
       <div>
         {productTypes.map((t, index) => {
           return (
-            <span
+            <li
               key={index}
+              onClick={onClickFunction}
             >
               {t}
-            </span>
+            </li>
           );
         })}
       </div>
     </nav>
   );
 }
+
+CNavegation.propTypes = {
+  setType: PropTypes.func,
+};

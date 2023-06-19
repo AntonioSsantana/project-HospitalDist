@@ -1,8 +1,5 @@
 import React from 'react';
 
-// Components
-import { CNavegation } from './index';
-
 export default function CHeader() {
   return (
     <header>
@@ -57,7 +54,6 @@ export default function CHeader() {
           />
         </a>
       </div>
-      <CNavegation />
     </header>
   );
 }
