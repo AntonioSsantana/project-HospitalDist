@@ -13,7 +13,7 @@ const seringas = [
   {
     "id": 27,
     "name": "Seringa para Lavagem de Ouvido - Stylle",
-    "price": 352.00,
+    "price": 352.20,
     "company": "Stylle",
     "type": "Seringa",
     "image": "https://images.tcdn.com.br/img/img_prod/780820/seringa_para_lavagem_de_ouvido_100_cc_5647744_1_20200531135938.jpg",
