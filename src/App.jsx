@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 // Components
 import {
@@ -9,11 +9,18 @@ import {
 import productsMock from './mock';
 
 export default function App() {
+
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    setProducts(productsMock);
+  });
+
   return (
     <div>
       <CHeader />
       <main>
-        {productsMock.map((m, index) => {
+        {products.map((m, index) => {
           return (<article
             key={index}
           >
