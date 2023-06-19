@@ -1,35 +1,24 @@
 const equipo = [
   {
     "id": 33,
-    "name": "Equipo Macrogotas - Descarpack - COM INJETOR LATERAL",
+    "name": "Equipo Macrogotas Completo - Caixa com 400 un.",
     "price": 1.89,
-    "company": "Descarpack",
+    "company": "Medix",
     "type": "Equipo",
+    "image": "https://cdn.awsli.com.br/800x800/1963/1963096/produto/109627630/d63faa2a72.jpg",
     "characteristics": null,
-    "description": `EQUIPO MACROGOTAS Indicado para infusão de soluções parenterais estéreis; 
-    Embalado individualmente em papel grau cirúrgico com filme termoplástico e selado termicamente; 
-    Esterilizado a óxido de etileno; PVC flexível; Tubo de 1,50m com ponta perfurante e tampa protetora; 
-    Pinça rolete e corta-fluxo; Injetor lateral resistente; Conector tipo luer universal; 
-    Câmara gotejadora macrogotas com respiro de ar com filtro Hidrófobo e Bacteriológico; 
-    Atóxico; 
-    Produto médico hospitalar de uso único`
+    "description": `Equipo de infusão macrogotas (20 gotas/ml), 
+    com conector Luer Slip, desenvolvido para administração de medicamentos e soluções pela via endovenosa.`
   },
   {
     "id": 4,
-    "name": "Equipo Multivias 2 vias com Clamp (Polifix) - VitaGold",
+    "name": "Extensor Multivias com Clamp - Pacote com 40 un.",
     "price": 1.43,
-    "company": "VitaGold",
+    "company": "Vital",
     "type": "Equipo",
+    "image": "https://cdn.shopify.com/s/files/1/0294/2815/4447/files/2EXTENSORDEMULTIVIASCOMCLAMPLOCK_f8baabff-d9a5-463e-9848-f6c5e7b8007f_1024x.jpg",
     "characteristics": null,
-    "description": `Dispositivo para administração de medicamentos/soluções; 
-    possui 2 conectores luer lock fêmea universais com tampas; 
-    Tubo flexível e transparente em PVC de 60mm de comprimento; 
-    2 clamp corta fluxo; 
-    Conector 2 vias, 
-    um conector luer slip macho universal com protetor. 
-    Embalado individualmente em Papel Grau Cirúrgico e filme termoplástico, 
-    contendo os dados impressos de identificação, código, lote, data de fabricação e validade e 
-    registro no Ministério da Saúde, conforme NBR 14041/1998.  `
+    "description": `O Extensor Multivias com Clamp é um duplicador de acesso que conecta duas vias de infusão ao acesso venoso.`
   },
 ]
 
