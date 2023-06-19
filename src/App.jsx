@@ -13,20 +13,26 @@ export default function App() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    setProducts(productsMock);
-  });
+    try {
+      if (productsMock) {
+        setProducts(productsMock);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }, []);
 
   return (
     <div>
       <CHeader />
       <main>
-        {products.map((m, index) => {
+        {products.map((p, index) => {
           return (<article
             key={index}
           >
-            <span>{m.name}</span>
-            <img src={m.image} alt={m.name} width="50px" />
-            <span>{`R$ ${m.price.toFixed(2).toString().replace('.', ',')}`}</span>
+            <span>{p.name}</span>
+            <img src={p.image} alt={p.name} width="50px" />
+            <span>{`R$ ${p.price.toFixed(2).toString().replace('.', ',')}`}</span>
           </article>
           );
         })}
