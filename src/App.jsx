@@ -27,23 +27,59 @@ export default function App() {
     <div>
       <CHeader />
       <CNavegation
-        selectedType={selectedType} 
+        selectedType={selectedType}
         setType={setType}
       />
       <main>
-        {products.map((p, index) => {
-          return (<article
-            key={index}
-          >
+        {selectedType === 'Pressão' ? (
+          productsMock
+            .filter((p) => p.type === 'Pressão')
+            .map((p, index) => (
+              <article key={index}>
+                <span>{p.name}</span>
+                <img src={p.image} alt={p.name} width="50px" />
+                <span>{`R$ ${p.price.toFixed(2).toString().replace('.', ',')}`}</span>
+              </article>
+            ))
+        ) : selectedType === 'Equipo' ? (
+          productsMock
+            .filter((p) => p.type === 'Equipo')
+            .map((p, index) => (
+              <article key={index}>
+                <span>{p.name}</span>
+                <img src={p.image} alt={p.name} width="50px" />
+                <span>{`R$ ${p.price.toFixed(2).toString().replace('.', ',')}`}</span>
+              </article>
+            ))
+        ) : selectedType === 'Luvas' ? (
+          productsMock
+            .filter((p) => p.type === 'Luvas')
+            .map((p, index) => (
+              <article key={index}>
+                <span>{p.name}</span>
+                <img src={p.image} alt={p.name} width="50px" />
+                <span>{`R$ ${p.price.toFixed(2).toString().replace('.', ',')}`}</span>
+              </article>
+            ))
+        ) : selectedType === 'Seringa' ? (
+          productsMock
+            .filter((p) => p.type === 'Seringa')
+            .map((p, index) => (
+              <article key={index}>
+                <span>{p.name}</span>
+                <img src={p.image} alt={p.name} width="50px" />
+                <span>{`R$ ${p.price.toFixed(2).toString().replace('.', ',')}`}</span>
+              </article>
+            ))
+        ) : products.map((p, index) => (
+          <article key={index}>
             <span>{p.name}</span>
             <img src={p.image} alt={p.name} width="50px" />
             <span>{`R$ ${p.price.toFixed(2).toString().replace('.', ',')}`}</span>
           </article>
-          );
-        })}
+        ))}
       </main>
       <CFooter />
-      {console.log(selectedType)}
     </div>
   );
 }
