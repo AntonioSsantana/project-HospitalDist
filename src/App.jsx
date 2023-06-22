@@ -65,9 +65,9 @@ export default function Ap() {
         setType={setType}
       />
       <main>
-        {selectedType === 'pressão' ? (
+        {selectedType === 'Pressão' ? (
           productsMock
-            .filter((p) => p.type === 'pressão')
+            .filter((p) => p.type === 'Pressão')
             .map((p, index) => (
               <article key={index}>
                 <p>
