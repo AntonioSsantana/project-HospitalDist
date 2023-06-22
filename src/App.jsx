@@ -25,23 +25,37 @@ export default function Ap() {
 
   const onClickFunction = ({ target }) => {
     const { parentNode } = target;
-
+  
     try {
-      const productObject = {
-        name: parentNode.querySelector('p').textContent,
-        price: parentNode.querySelector('span').textContent,
-        image: parentNode.querySelector('img').getAttribute('src')
-      };
-
-      const cartItens = JSON.parse(localStorage.getItem('cart')) || [];
-
-      const newCart = Array.isArray(cartItens) ? [...cartItens, productObject] : [productObject];
-
-      localStorage.setItem('cart', JSON.stringify(newCart));
+      const productName = parentNode.querySelector('p').textContent;
+      const productPrice = parentNode.querySelector('span').textContent;
+      const productImage = parentNode.querySelector('img').getAttribute('src');
+  
+      const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+      let foundProduct = false;
+  
+      const updatedCartItems = cartItems.map((item) => {
+        if (item.name === productName) {
+          foundProduct = true;
+          return { ...item, quantity: item.quantity + 1 };
+        }
+        return item;
+      });
+  
+      if (!foundProduct) {
+        updatedCartItems.push({
+          name: productName,
+          price: productPrice,
+          image: productImage,
+          quantity: 1
+        });
+      }
+  
+      localStorage.setItem('cart', JSON.stringify(updatedCartItems));
     } catch (error) {
       console.error(error);
     }
-  };
+  };  
 
   return (
     <div>

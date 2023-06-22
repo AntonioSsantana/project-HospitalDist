@@ -7,7 +7,7 @@ export default function Checkout() {
   useEffect(() => {
     try {
       const products = JSON.parse(localStorage.getItem('cart'));
-      setCheckoutProducts(products.map((product) => ({ ...product, quantity: 1 })));
+      setCheckoutProducts(products);
     } catch (error) {
       console.error(error);
     }
