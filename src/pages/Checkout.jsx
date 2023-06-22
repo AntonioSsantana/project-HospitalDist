@@ -22,7 +22,7 @@ export default function Checkout() {
       setQuantity(quantity + 1);
       break;
     case 'reduce-quantity':
-      if(quantity === 1){
+      if (quantity === 1) {
         break;
       }
       setQuantity(quantity - 1);
@@ -91,6 +91,13 @@ export default function Checkout() {
                         >
                           +
                         </button>
+                      </td>
+                      <td>
+                        {
+                          quantity > 1 ? (
+                            `R$ ${(p.price.replace('R$', '').replace(',', '.') * quantity).toFixed(2).replace('.', ',')}`
+                          ) : (p.price)
+                        }
                       </td>
                     </tr>
                   );
