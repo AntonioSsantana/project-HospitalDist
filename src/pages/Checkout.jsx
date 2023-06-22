@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 export default function Checkout() {
 
   const [checkoutProducts, setCheckoutProducts] = useState([]);
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     try {
@@ -12,6 +13,24 @@ export default function Checkout() {
       console.error(error);
     }
   }, []);
+
+  const onClickFunction = ({ target }) => {
+    const { name } = target;
+
+    switch (name) {
+    case 'addiction-quantity':
+      setQuantity(quantity + 1);
+      break;
+    case 'reduce-quantity':
+      if(quantity === 1){
+        break;
+      }
+      setQuantity(quantity - 1);
+      break;
+    default:
+      break;
+    }
+  };
 
   return (
     <div>
@@ -57,6 +76,21 @@ export default function Checkout() {
                       </td>
                       <td>
                         {p.price}
+                      </td>
+                      <td>
+                        <button
+                          name='reduce-quantity'
+                          onClick={onClickFunction}
+                        >
+                          -
+                        </button>
+                        <p>{quantity}</p>
+                        <button
+                          name='addiction-quantity'
+                          onClick={onClickFunction}
+                        >
+                          +
+                        </button>
                       </td>
                     </tr>
                   );
