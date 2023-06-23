@@ -11,12 +11,19 @@ export default function Checkout() {
     } catch (error) {
       console.error(error);
     }
-  }, []);
+  }, [checkoutProducts]);
 
   const onClickFunction = ({ target }) => {
     const { parentNode, name } = target;
     const grandParent = parentNode.parentNode;
     const productName = grandParent.querySelector('span').textContent;
+
+    if (name === 'remove-checkout-product' && checkoutProducts) {
+      const fetchProduct = checkoutProducts.filter((p) => p.name !== productName);
+      localStorage.setItem('cart', JSON.stringify(fetchProduct));
+      setCheckoutProducts(fetchProduct);
+      return;
+    }
 
     const updatedProducts = checkoutProducts.map((product) => {
       if (product.name === productName) {
@@ -104,6 +111,14 @@ export default function Checkout() {
                             `R$ ${(p.price.replace('R$', '').replace(',', '.') * p.quantity).toFixed(2).replace('.', ',')}`
                           ) : (p.price)
                         }
+                      </td>
+                      <td>
+                        <button
+                          name='remove-checkout-product'
+                          onClick={onClickFunction}
+                        >
+                          Remover
+                        </button>
                       </td>
                     </tr>
                   );
