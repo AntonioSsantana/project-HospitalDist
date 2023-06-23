@@ -45,7 +45,7 @@ export default function CHeader() {
       </div>
       <div>
         <a
-          href="/u/cart"
+          href="checkout/cart"
         >
           <img
             src="https://www.freeiconspng.com/uploads/shopping-cart-icon-30.png"
