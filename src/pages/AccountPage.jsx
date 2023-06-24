@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react';
 // Validations
 import {
   cpfValidation,
-  emailValidation
+  emailValidation,
+  telephoneValidation
 } from '../validations/index';
 
 export default function AccountPage() {
@@ -19,9 +20,10 @@ export default function AccountPage() {
   const [isDisable, setDisableButton] = useState(true);
 
   useEffect(() => {
-    const { cpf, email } = userObject;
+    const { username, email, password, cpf, telephone } = userObject;
 
-    if (cpfValidation(cpf) && emailValidation(email)) {
+    if (cpfValidation(cpf) && emailValidation(email) && 
+    username.length >= 2 && password.length >= 6 && telephoneValidation(telephone)) {
       return setDisableButton(false);
     }
 
@@ -103,6 +105,7 @@ export default function AccountPage() {
           type='text'
           id='cpf-input'
           name="cpf-input"
+          placeholder='xxx.xxx.xxx-xx'
           onChange={onChangeFunction}
         />
       </div>
