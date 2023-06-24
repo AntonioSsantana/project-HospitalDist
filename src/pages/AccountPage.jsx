@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import CPFvalidation from '../validations/CPFvalidation';
+
+// Validations
+import {
+  cpfValidation,
+  emailValidation
+} from '../validations/index';
 
 export default function AccountPage() {
 
@@ -11,14 +16,16 @@ export default function AccountPage() {
     telephone: '',
   });
 
-  const [isDisable, setEnableButton] = useState(true);
+  const [isDisable, setDisableButton] = useState(true);
 
   useEffect(() => {
-    if (CPFvalidation(userObject.cpf)) {
-      setEnableButton(false);
-    } else {
-      setEnableButton(true);
+    const { cpf, email } = userObject;
+
+    if (cpfValidation(cpf) && emailValidation(email)) {
+      return setDisableButton(false);
     }
+
+    setDisableButton(true);
   }, [userObject]);
 
   const onChangeFunction = ({ target }) => {
@@ -26,9 +33,19 @@ export default function AccountPage() {
 
     switch (name) {
     case 'username-input':
+      setUserObject({ ...userObject, username: value });
+      break;
+    case 'email-input':
+      setUserObject({ ...userObject, email: value });
+      break;
+    case 'password-input':
+      setUserObject({ ...userObject, password: value });
       break;
     case 'cpf-input':
-      setUserObject({...userObject, cpf: value});
+      setUserObject({ ...userObject, cpf: value });
+      break;
+    case 'telephone-input':
+      setUserObject({ ...userObject, telephone: value });
       break;
     default:
       break;
@@ -47,6 +64,7 @@ export default function AccountPage() {
           type='text'
           id='username'
           name='username-input'
+          onChange={onChangeFunction}
         />
       </div>
       <div>
@@ -59,6 +77,7 @@ export default function AccountPage() {
           type='text'
           id='email'
           name='email-input'
+          onChange={onChangeFunction}
         />
       </div>
       <div>
@@ -71,6 +90,7 @@ export default function AccountPage() {
           type='password'
           id='password'
           name='password-input'
+          onChange={onChangeFunction}
         />
       </div>
       <div>
@@ -95,11 +115,13 @@ export default function AccountPage() {
         <input
           type='tel'
           id='number'
-          name='number-input'
+          name='telephone-input'
           placeholder='(xx) xxxxx-xxxx'
+          onChange={onChangeFunction}
         />
       </div>
       <button
+        type='button'
         disabled={isDisable}
       >
         Confirmar

@@ -1,4 +1,4 @@
-export default function CPFvalidation(cpf) {
+export default function cpfValidation(cpf) {
   cpf = cpf.replace(/\D/g, '');
 
   if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) {
