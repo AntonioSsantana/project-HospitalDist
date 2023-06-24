@@ -38,6 +38,7 @@ export default function AccountPage() {
         <input
           type='text'
           id='username'
+          name='username-input'
         />
       </div>
       <div>
@@ -49,6 +50,7 @@ export default function AccountPage() {
         <input
           type='text'
           id='email'
+          name='email-input'
         />
       </div>
       <div>
@@ -60,6 +62,7 @@ export default function AccountPage() {
         <input
           type='password'
           id='password'
+          name='password-input'
         />
       </div>
       <div>
@@ -84,6 +87,8 @@ export default function AccountPage() {
         <input
           type='tel'
           id='number'
+          name='number-input'
+          placeholder='(xx) xxxxx-xxxx'
         />
       </div>
       <button
