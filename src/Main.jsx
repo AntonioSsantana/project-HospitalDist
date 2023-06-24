@@ -5,7 +5,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 // Pages
 import App from './App.jsx';
 import {
-  Checkout
+  Checkout,
+  AccountPage
 } from './pages/index.js';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -14,6 +15,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Routes>
         <Route exact path='/' element={<App />} />
         <Route path='/checkout/cart' element={<Checkout />} />
+        <Route path='/u/account' element={<AccountPage /> } />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

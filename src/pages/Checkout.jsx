@@ -74,7 +74,7 @@ export default function Checkout() {
             </thead>
             <tbody>
               {
-                checkoutProducts.map((p, index) => {
+                checkoutProducts ? checkoutProducts.map((p, index) => {
                   return (
                     <tr
                       key={index}
@@ -122,7 +122,7 @@ export default function Checkout() {
                       </td>
                     </tr>
                   );
-                })
+                }) : null
               }
             </tbody>
           </table>
