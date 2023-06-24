@@ -3,24 +3,32 @@ import CPFvalidation from '../validations/CPFvalidation';
 
 export default function AccountPage() {
 
-  const [cpfValue, setCpfValue] = useState('');
+  const [userObject, setUserObject] = useState({
+    username: '',
+    email: '',
+    password: '',
+    cpf: '',
+    telephone: '',
+  });
 
   const [isDisable, setEnableButton] = useState(true);
 
   useEffect(() => {
-    if (CPFvalidation(cpfValue)) {
+    if (CPFvalidation(userObject.cpf)) {
       setEnableButton(false);
     } else {
       setEnableButton(true);
     }
-  }, [cpfValue]);
+  }, [userObject]);
 
   const onChangeFunction = ({ target }) => {
     const { name, value } = target;
 
     switch (name) {
+    case 'username-input':
+      break;
     case 'cpf-input':
-      setCpfValue(value);
+      setUserObject({...userObject, cpf: value});
       break;
     default:
       break;
