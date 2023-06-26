@@ -56,7 +56,7 @@ export default function Checkout() {
               src="https://cdn-icons-png.flaticon.com/512/2966/2966327.png"
               alt="logo"
               width="50px" />
-            <p>Bem Estar Distribuidora</p>
+            <p>A+ Distribuidora</p>
           </a>
         </div>
       </header>
