@@ -21,18 +21,6 @@ export default function CHeader() {
       </div>
       <div>
         <a
-          href="/i/service"
-        >
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/2598/2598911.png"
-            alt="atendimento"
-            width="35px"
-          />
-          <p>Atendimento</p>
-        </a>
-      </div>
-      <div>
-        <a
           href="/u/account"
         >
           <img
