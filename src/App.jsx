@@ -11,6 +11,8 @@ import productsMock from './mock';
 export default function Ap() {
 
   const [products, setproducts] = useState([]);
+  const [productsBySearch, setProductsBySearch] = useState([]);
+
   const [selectedType, setType] = useState('');
 
   useEffect(() => {
@@ -23,17 +25,37 @@ export default function Ap() {
     }
   }, []);
 
+  const onchangeFunction = ({ target }) => {
+    const { value, name } = target;
+    let productsSearch;
+
+    switch (name) {
+    case 'search-bar':
+      productsSearch = products.filter((i) => {
+        const valueLowerCase = value.toLowerCase().substring(0, 2);
+        const productNameLowerCase = i.name.toLowerCase();
+
+        return productNameLowerCase.substring(0, 2).includes(valueLowerCase);
+      });
+
+      setProductsBySearch(productsSearch);
+      break;
+    default:
+      break;
+    }
+  };
+
   const onClickFunction = ({ target }) => {
     const { parentNode } = target;
-  
+
     try {
       const productName = parentNode.querySelector('p').textContent;
       const productPrice = parentNode.querySelector('span').textContent;
       const productImage = parentNode.querySelector('img').getAttribute('src');
-  
+
       const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
       let foundProduct = false;
-  
+
       const updatedCartItems = cartItems.map((item) => {
         if (item.name === productName) {
           foundProduct = true;
@@ -41,7 +63,7 @@ export default function Ap() {
         }
         return item;
       });
-  
+
       if (!foundProduct) {
         updatedCartItems.push({
           name: productName,
@@ -50,16 +72,24 @@ export default function Ap() {
           quantity: 1
         });
       }
-  
+
       localStorage.setItem('cart', JSON.stringify(updatedCartItems));
     } catch (error) {
       console.error(error);
     }
-  };  
+  };
 
   return (
     <div>
       <CHeader />
+      <div>
+        <input
+          type="text"
+          placeholder="Pesquisa"
+          name="search-bar"
+          onChange={onchangeFunction}
+        />
+      </div>
       <CNavegation
         selectedType={selectedType}
         setType={setType}
@@ -135,7 +165,7 @@ export default function Ap() {
                 </button>
               </article>
             ))
-        ) : products.map((p, index) => (
+        ) : productsBySearch ? (productsBySearch.map((p, index) => (
           <article key={index}>
             <p>
               {p.name}
@@ -148,7 +178,20 @@ export default function Ap() {
               Adicionar
             </button>
           </article>
-        ))}
+        ))) : (products.map((p, index) => (
+          <article key={index}>
+            <p>
+              {p.name}
+            </p>
+            <img src={p.image} alt={p.name} width="50px" />
+            <span>{`R$ ${p.price.toFixed(2).toString().replace('.', ',')}`}</span>
+            <button
+              onClick={onClickFunction}
+            >
+              Adicionar
+            </button>
+          </article>
+        )))}
       </main>
       <CFooter />
     </div>
