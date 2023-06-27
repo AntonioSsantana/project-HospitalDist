@@ -21,7 +21,7 @@ export default function CFooter() {
         </div>
       </article>
       <article>
-        <p>COPYRIGHT © - Bem Estar Distribuidora</p>
+        <p>COPYRIGHT © - A+ Distribuidora</p>
       </article>
     </footer>
   );
