@@ -15,11 +15,6 @@ export default function CHeader() {
         </a>
       </div>
       <div>
-        <input
-          placeholder="Pesquisa"
-        />
-      </div>
-      <div>
         <a
           href="/u/account"
         >
