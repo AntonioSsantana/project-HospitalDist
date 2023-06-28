@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function CHeader() {
   return (
@@ -6,8 +7,8 @@ export default function CHeader() {
       data-testid="header-container"
     >
       <div>
-        <a
-          href="/"
+        <Link
+          to="/"
         >
           <img
             src="https://cdn-icons-png.flaticon.com/512/2966/2966327.png"
@@ -20,11 +21,11 @@ export default function CHeader() {
           >
             A+ Distribuidora
           </span>
-        </a>
+        </Link>
       </div>
       <div>
-        <a
-          href="/u/account"
+        <Link
+          to="/u/account"
         >
           <img
             src="https://www.pngmart.com/files/21/Account-User-PNG-Photo.png"
@@ -32,11 +33,12 @@ export default function CHeader() {
             width="35px"
           />
           <span>Minha Conta</span>
-        </a>
+        </Link>
       </div>
       <div>
-        <a
-          href="checkout/cart"
+        <Link
+          to="checkout/cart"
+          data-testid="header-container-cart-link"
         >
           <img
             src="https://www.freeiconspng.com/uploads/shopping-cart-icon-30.png"
@@ -44,7 +46,7 @@ export default function CHeader() {
             width="35px"
             data-testid="header-container-cart"
           />
-        </a>
+        </Link>
       </div>
     </header>
   );
