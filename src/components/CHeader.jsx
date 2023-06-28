@@ -15,7 +15,11 @@ export default function CHeader() {
             width="50px"
             data-testid="header-container-logo"
           />
-          <p>A+ Distribuidora</p>
+          <span
+            data-testid="header-container-hospital-name"
+          >
+            A+ Distribuidora
+          </span>
         </a>
       </div>
       <div>
@@ -27,7 +31,7 @@ export default function CHeader() {
             alt="minha conta"
             width="35px"
           />
-          <p>Minha Conta</p>
+          <span>Minha Conta</span>
         </a>
       </div>
       <div>
