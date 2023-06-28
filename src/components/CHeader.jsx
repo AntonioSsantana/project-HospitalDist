@@ -42,6 +42,7 @@ export default function CHeader() {
             src="https://www.freeiconspng.com/uploads/shopping-cart-icon-30.png"
             alt="carrinho"
             width="35px"
+            data-testid="header-container-cart"
           />
         </a>
       </div>

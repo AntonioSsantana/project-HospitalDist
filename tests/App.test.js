@@ -21,7 +21,7 @@ describe('Teste da página principal (App.jsx)', () => {
         expect.stringContaining('https://cdn-icons-png.flaticon.com/512/2966/2966327.png')
       );
     });
-
+    
     it('Verifica se o nome da distribuidora fictícia é renderizada corretamente', () => {
       const textContent = screen.getByTestId('header-container-hospital-name').textContent;
       expect(textContent).toEqual('A+ Distribuidora');
