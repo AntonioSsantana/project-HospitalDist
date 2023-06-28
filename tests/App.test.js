@@ -4,7 +4,20 @@ import '@testing-library/jest-dom/extend-expect';
 
 import App from '../src/App';
 
-test('Teste', () => {
-  render(<App />);
-  expect(screen.getByText('A+ Distribuidora')).toBeInTheDocument();
+describe('Teste da página principal (App.jsx)', () => {
+  beforeEach(() => {
+    render(<App />);
+  });
+
+  describe('Verifica o componente Header', () => {
+    it('Verifica se o Header é renderizado na página principal', () => {
+      const headerComponent = screen.getByTestId('header-container');
+      expect(headerComponent).toBeInTheDocument();
+    });
+
+    it('Verifica se o elemento <img /> renderiza a logo corretamente', () => {
+      const imgElement = screen.getByTestId('header-container-logo');
+      expect(imgElement).toHaveAttribute('src', expect.stringContaining('https://cdn-icons-png.flaticon.com/512/2966/2966327.png'));
+    });
+  });
 });

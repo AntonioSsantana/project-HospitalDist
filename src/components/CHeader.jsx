@@ -2,7 +2,9 @@ import React from 'react';
 
 export default function CHeader() {
   return (
-    <header>
+    <header
+      data-testid="header-container"
+    >
       <div>
         <a
           href="/"
@@ -10,7 +12,9 @@ export default function CHeader() {
           <img
             src="https://cdn-icons-png.flaticon.com/512/2966/2966327.png"
             alt="logo"
-            width="50px" />
+            width="50px"
+            data-testid="header-container-logo"
+          />
           <p>A+ Distribuidora</p>
         </a>
       </div>
