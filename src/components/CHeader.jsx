@@ -31,6 +31,7 @@ export default function CHeader() {
             src="https://www.pngmart.com/files/21/Account-User-PNG-Photo.png"
             alt="minha conta"
             width="35px"
+            data-testid="header-container-account-link"
           />
           <span>Minha Conta</span>
         </Link>

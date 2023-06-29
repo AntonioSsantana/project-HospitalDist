@@ -32,11 +32,20 @@ describe('Teste da página principal (App.jsx)', () => {
       expect(textContent).toEqual('A+ Distribuidora');
     });
 
+    it('Verifica se o usuário é redirecionado para a página de conta do usuário ao clicar em "Minha Conta"', async () => {
+      const { history } = renderWithRouter(<App />);
+    
+      const toAccountPageLink = screen.getByTestId('header-container-account-link');
+      await userEvent.click(toAccountPageLink);
+
+      expect(history.location.pathname).toBe('/u/account');
+    });
+
     it('Verifica se o usuário é redirecionado para a página de checkout ao clicar no carrinho', async () => {
       const { history } = renderWithRouter(<App />);
 
-      const toCartLink = screen.getByTestId('header-container-cart-link');
-      await userEvent.click(toCartLink);
+      const toCheckoutPageLink = screen.getByTestId('header-container-cart-link');
+      await userEvent.click(toCheckoutPageLink);
 
       expect(history.location.pathname).toBe('/checkout/cart');
     });
