@@ -29,7 +29,7 @@ export default function CNavegation({ setType }) {
       setType(outerText);
       break;
     case 'Luvas':
-      setType(outerText); 
+      setType(outerText);
       break;
     case 'Seringa':
       setType(outerText);
@@ -40,7 +40,9 @@ export default function CNavegation({ setType }) {
   };
 
   return (
-    <nav>
+    <nav
+      data-testid="navegation-container"
+    >
       <div>
         {productTypes.map((t, index) => {
           return (

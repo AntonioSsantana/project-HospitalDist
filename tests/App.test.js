@@ -50,4 +50,12 @@ describe('Teste da página principal (App.jsx)', () => {
       expect(history.location.pathname).toBe('/checkout/cart');
     });
   });
+
+  describe('Verifica o componente Navegation', () => {
+    it('Verifica se o componente Navegation é renderizado corretamente', () => {
+      renderWithRouter(<App />);
+      const navegationElement = screen.getByTestId('navegation-container');
+      expect(navegationElement).toBeInTheDocument();
+    });
+  });
 });
