@@ -9,6 +9,8 @@ import renderWithRouter from './helpers/renderWithRouter';
 // Pages
 import App from '../src/App';
 
+// Mocks
+import productsMock from '../src/mock';
 
 describe('Teste da página principal (App.jsx)', () => {
   describe('Verifica o componente Header', () => {
@@ -56,6 +58,15 @@ describe('Teste da página principal (App.jsx)', () => {
       renderWithRouter(<App />);
       const navegationElement = screen.getByTestId('navegation-container');
       expect(navegationElement).toBeInTheDocument();
+    });
+
+    it('Verifica se os tipos de produto são renderizados corretamente', () => {
+      renderWithRouter(<App />);
+      const typeElements = screen.getAllByTestId(/type-product-/i);
+      
+      const uniqueTypes = [...new Set(productsMock.map((p) => p.type))];
+      
+      expect(typeElements).toHaveLength(uniqueTypes.length);
     });
   });
 });

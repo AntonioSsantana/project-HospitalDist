@@ -49,6 +49,7 @@ export default function CNavegation({ setType }) {
             <li
               key={index}
               onClick={onClickFunction}
+              data-testid={`type-product-${t}`}
             >
               {t}
             </li>
