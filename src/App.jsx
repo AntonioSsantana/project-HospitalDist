@@ -25,7 +25,7 @@ export default function Ap() {
     }
   }, []);
 
-  const onchangeFunction = ({ target }) => {
+  const onChangeFunction = ({ target }) => {
     const { value, name } = target;
     let productsSearch;
 
@@ -88,7 +88,7 @@ export default function Ap() {
           placeholder="Pesquisa"
           name="search-bar"
           data-testid="search-input"
-          onChange={onchangeFunction}
+          onChange={onChangeFunction}
         />
       </div>
       <CNavegation
@@ -97,7 +97,7 @@ export default function Ap() {
       />
       <main>
         {selectedType === 'Pressão' ? (
-          productsMock
+          products
             .filter((p) => p.type === 'Pressão')
             .map((p, index) => (
               <article key={index}>
@@ -116,7 +116,7 @@ export default function Ap() {
               </article>
             ))
         ) : selectedType === 'Equipo' ? (
-          productsMock
+          products
             .filter((p) => p.type === 'Equipo')
             .map((p, index) => (
               <article key={index}>
@@ -133,7 +133,7 @@ export default function Ap() {
               </article>
             ))
         ) : selectedType === 'Luvas' ? (
-          productsMock
+          products
             .filter((p) => p.type === 'Luvas')
             .map((p, index) => (
               <article key={index}>
@@ -150,7 +150,7 @@ export default function Ap() {
               </article>
             ))
         ) : selectedType === 'Seringa' ? (
-          productsMock
+          products
             .filter((p) => p.type === 'Seringa')
             .map((p, index) => (
               <article key={index}>
@@ -166,36 +166,37 @@ export default function Ap() {
                 </button>
               </article>
             ))
-        ) : productsBySearch ? (productsBySearch.map((p, index) => (
-          <article
-            data-testid={`product-${p.id}-by-search`}
-            key={index}
-          >
-            <p>
-              {p.name}
-            </p>
-            <img src={p.image} alt={p.name} width="50px" />
-            <span>{`R$ ${p.price.toFixed(2).toString().replace('.', ',')}`}</span>
-            <button
-              onClick={onClickFunction}
+        ) : Array.isArray(productsBySearch) &&
+          productsBySearch.length > 0 ? (productsBySearch.map((p, index) => (
+            <article
+              data-testid={`product-${p.id}-by-search`}
+              key={index}
             >
-              Adicionar
-            </button>
-          </article>
-        ))) : (products.map((p, index) => (
-          <article key={index}>
-            <p>
-              {p.name}
-            </p>
-            <img src={p.image} alt={p.name} width="50px" />
-            <span>{`R$ ${p.price.toFixed(2).toString().replace('.', ',')}`}</span>
-            <button
-              onClick={onClickFunction}
-            >
-              Adicionar
-            </button>
-          </article>
-        )))}
+              <p>
+                {p.name}
+              </p>
+              <img src={p.image} alt={p.name} width="50px" />
+              <span>{`R$ ${p.price.toFixed(2).toString().replace('.', ',')}`}</span>
+              <button
+                onClick={onClickFunction}
+              >
+                Adicionar
+              </button>
+            </article>
+          ))) : (products.map((p, index) => (
+            <article key={index}>
+              <p>
+                {p.name}
+              </p>
+              <img src={p.image} alt={p.name} width="50px" />
+              <span>{`R$ ${p.price.toFixed(2).toString().replace('.', ',')}`}</span>
+              <button
+                onClick={onClickFunction}
+              >
+                Adicionar
+              </button>
+            </article>
+          )))}
       </main>
       <CFooter />
     </div>
