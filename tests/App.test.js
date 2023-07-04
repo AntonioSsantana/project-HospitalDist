@@ -69,4 +69,17 @@ describe('Teste da página principal (App.jsx)', () => {
       expect(typeElements).toHaveLength(uniqueTypes.length);
     });
   });
+
+  describe('Verifica elementos renderizados por ação do usuário', () => {
+    it('Verifica se ao digitar um nome na barra de pesquisa o resultado aparece corretamente', async () => {
+      renderWithRouter(<App />);
+      const searchInputElement = screen.getByTestId('search-input');
+
+      await userEvent.type(searchInputElement, 'Aparelho');
+
+      const findProduct = screen.getByTestId('product-12-by-search');
+
+      expect(findProduct).toBeInTheDocument();
+    });
+  });
 });

@@ -87,6 +87,7 @@ export default function Ap() {
           type="text"
           placeholder="Pesquisa"
           name="search-bar"
+          data-testid="search-input"
           onChange={onchangeFunction}
         />
       </div>
@@ -166,7 +167,10 @@ export default function Ap() {
               </article>
             ))
         ) : productsBySearch ? (productsBySearch.map((p, index) => (
-          <article key={index}>
+          <article
+            data-testid={`product-${p.id}-by-search`}
+            key={index}
+          >
             <p>
               {p.name}
             </p>
