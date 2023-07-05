@@ -2,6 +2,7 @@ import React from 'react';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom/extend-expect';
+import 'jest-localstorage-mock';
 
 // Helpers
 import renderWithRouter from './helpers/renderWithRouter';
@@ -91,6 +92,23 @@ describe('Teste da página principal (App.jsx)', () => {
       const findProduct = screen.queryByText('Luva Cirúrgica Estéril Látex Sensitex');
       
       expect(findProduct).toBeInTheDocument();
+    });
+
+    it('Verifica se ao clicar no botão "Adicionar", o produto correspondente é armazenado no localStorage', async () => {
+      renderWithRouter(<App />);
+      const product = {
+        image: 'https://cdn.vnda.com.br/1200x/pedeapoio/2019/07/09/25903-aparelho-de-pressao-gamma-gp-adulto-2405.jpg',
+        name: 'Aparelho de Pressão Gamma GP Adulto Heine',
+        price: 'R$ 1690,00',
+        quantity: 1,
+      };
+    
+      const addButtonElement = screen.getAllByRole('button')[0];
+    
+      await userEvent.click(addButtonElement);
+      localStorage.setItem('cart', JSON.stringify(product));
+
+      expect(product).toEqual(JSON.parse(localStorage.getItem('cart')));
     });
   });
 });

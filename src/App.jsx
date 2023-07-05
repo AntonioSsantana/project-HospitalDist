@@ -192,6 +192,7 @@ export default function Ap() {
               <img src={p.image} alt={p.name} width="50px" />
               <span>{`R$ ${p.price.toFixed(2).toString().replace('.', ',')}`}</span>
               <button
+                data-testid={`add-${p.id}-product`}
                 onClick={onClickFunction}
               >
                 Adicionar
