@@ -36,7 +36,7 @@ describe('Teste da página principal (App.jsx)', () => {
 
     it('Verifica se o usuário é redirecionado para a página de conta do usuário ao clicar em "Minha Conta"', async () => {
       const { history } = renderWithRouter(<App />);
-    
+
       const toAccountPageLink = screen.getByTestId('header-container-account-link');
       await userEvent.click(toAccountPageLink);
 
@@ -63,9 +63,9 @@ describe('Teste da página principal (App.jsx)', () => {
     it('Verifica se os tipos de produto são renderizados corretamente', () => {
       renderWithRouter(<App />);
       const typeElements = screen.getAllByTestId(/type-product-/i);
-      
+
       const uniqueTypes = [...new Set(productsMock.map((p) => p.type))];
-      
+
       expect(typeElements).toHaveLength(uniqueTypes.length);
     });
   });
@@ -79,6 +79,17 @@ describe('Teste da página principal (App.jsx)', () => {
 
       const findProduct = screen.getByTestId('product-12-by-search');
 
+      expect(findProduct).toBeInTheDocument();
+    });
+
+    it('Verifica se ao escolher um tipo de produto na barra de navegação é renderizado um produto do tipo correto', async () => {
+      renderWithRouter(<App />);
+      const glovesTypeElement = screen.getByTestId('type-product-Luvas');
+
+      await userEvent.click(glovesTypeElement);
+      
+      const findProduct = screen.queryByText('Luva Cirúrgica Estéril Látex Sensitex');
+      
       expect(findProduct).toBeInTheDocument();
     });
   });

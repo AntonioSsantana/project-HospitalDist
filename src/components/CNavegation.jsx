@@ -46,13 +46,14 @@ export default function CNavegation({ setType }) {
       <div>
         {productTypes.map((t, index) => {
           return (
-            <li
+            <button
+              type='button'
               key={index}
               onClick={onClickFunction}
               data-testid={`type-product-${t}`}
             >
               {t}
-            </li>
+            </button>
           );
         })}
       </div>

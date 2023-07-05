@@ -136,7 +136,8 @@ export default function Ap() {
           products
             .filter((p) => p.type === 'Luvas')
             .map((p, index) => (
-              <article key={index}>
+              <article
+                key={index}>
                 <p>
                   {p.name}
                 </p>
