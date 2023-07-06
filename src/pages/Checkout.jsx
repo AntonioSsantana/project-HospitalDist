@@ -11,7 +11,7 @@ export default function Checkout() {
     } catch (error) {
       console.error(error);
     }
-  }, [checkoutProducts]);
+  }, []);
 
   const onClickFunction = ({ target }) => {
     const { parentNode, name } = target;
