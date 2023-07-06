@@ -66,6 +66,7 @@ export default function AccountPage() {
           type='text'
           id='username'
           name='username-input'
+          data-testid='account-username-input'
           onChange={onChangeFunction}
         />
       </div>
@@ -79,6 +80,7 @@ export default function AccountPage() {
           type='text'
           id='email'
           name='email-input'
+          data-testid="account-email-input"
           onChange={onChangeFunction}
         />
       </div>
@@ -92,6 +94,7 @@ export default function AccountPage() {
           type='password'
           id='password'
           name='password-input'
+          data-testid='account-password-input'
           onChange={onChangeFunction}
         />
       </div>
@@ -106,6 +109,7 @@ export default function AccountPage() {
           id='cpf-input'
           name="cpf-input"
           placeholder='xxx.xxx.xxx-xx'
+          data-testid='account-cpf-input'
           onChange={onChangeFunction}
         />
       </div>
@@ -120,6 +124,7 @@ export default function AccountPage() {
           id='number'
           name='telephone-input'
           placeholder='(xx) xxxxx-xxxx'
+          data-testid='account-telephone-input'
           onChange={onChangeFunction}
         />
       </div>
