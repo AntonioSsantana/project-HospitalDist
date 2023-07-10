@@ -25,7 +25,7 @@ describe('Teste da página principal (App.jsx)', () => {
       renderWithRouter(<App />);
       const imgElement = screen.getByTestId('header-container-logo');
       expect(imgElement).toHaveAttribute('src',
-        expect.stringContaining('https://cdn-icons-png.flaticon.com/512/2966/2966327.png')
+        expect.stringContaining('https://cdn-icons-png.flaticon.com/512/4320/4320350.png')
       );
     });
 
