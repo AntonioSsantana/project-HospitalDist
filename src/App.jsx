@@ -96,7 +96,7 @@ export default function Ap() {
         />
       </div>
       <main>
-        {selectedType === 'Pressão' ? (
+        {selectedType === 'PRESSÃO' ? (
           products
             .filter((p) => p.type === 'Pressão')
             .map((p, index) => (
@@ -115,7 +115,7 @@ export default function Ap() {
                 </button>
               </article>
             ))
-        ) : selectedType === 'Equipo' ? (
+        ) : selectedType === 'EQUIPO' ? (
           products
             .filter((p) => p.type === 'Equipo')
             .map((p, index) => (
@@ -132,7 +132,7 @@ export default function Ap() {
                 </button>
               </article>
             ))
-        ) : selectedType === 'Luvas' ? (
+        ) : selectedType === 'LUVAS' ? (
           products
             .filter((p) => p.type === 'Luvas')
             .map((p, index) => (
@@ -150,7 +150,7 @@ export default function Ap() {
                 </button>
               </article>
             ))
-        ) : selectedType === 'Seringa' ? (
+        ) : selectedType === 'SERINGA' ? (
           products
             .filter((p) => p.type === 'Seringa')
             .map((p, index) => (
