@@ -82,6 +82,10 @@ export default function Ap() {
   return (
     <div>
       <CHeader />
+      <CNavegation
+        selectedType={selectedType}
+        setType={setType}
+      />
       <div>
         <input
           type="text"
@@ -91,10 +95,6 @@ export default function Ap() {
           onChange={onChangeFunction}
         />
       </div>
-      <CNavegation
-        selectedType={selectedType}
-        setType={setType}
-      />
       <main>
         {selectedType === 'Pressão' ? (
           products
