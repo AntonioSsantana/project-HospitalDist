@@ -9,8 +9,12 @@ import {
   AccountPage
 } from './pages/index.js';
 
+// Css
+import { GlobalStyle } from './GlobalStyle.js';
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <GlobalStyle />
     <BrowserRouter>
       <Routes>
         <Route exact path='/' element={<App />} />
