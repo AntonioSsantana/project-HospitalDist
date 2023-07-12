@@ -8,6 +8,9 @@ import {
 // Mock
 import productsMock from './mock';
 
+// Css
+import { Div } from './styles/pages/App.style';
+
 export default function Ap() {
 
   const [products, setproducts] = useState([]);
@@ -80,7 +83,7 @@ export default function Ap() {
   };
 
   return (
-    <div>
+    <Div>
       <CHeader />
       <CNavegation
         selectedType={selectedType}
@@ -201,6 +204,6 @@ export default function Ap() {
           )))}
       </main>
       <CFooter />
-    </div>
+    </Div>
   );
 }
