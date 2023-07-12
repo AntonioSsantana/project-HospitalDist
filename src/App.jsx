@@ -107,7 +107,7 @@ export default function Ap() {
                 <p>
                   {p.name}
                 </p>
-                <img src={p.image} alt={p.name} width="50px" />
+                <img src={p.image} alt={p.name} />
                 <span>
                   {`R$ ${p.price.toFixed(2).toString().replace('.', ',')}`}
                 </span>
@@ -126,7 +126,7 @@ export default function Ap() {
                 <p>
                   {p.name}
                 </p>
-                <img src={p.image} alt={p.name} width="50px" />
+                <img src={p.image} alt={p.name} />
                 <span>{`R$ ${p.price.toFixed(2).toString().replace('.', ',')}`}</span>
                 <button
                   onClick={onClickFunction}
@@ -144,7 +144,7 @@ export default function Ap() {
                 <p>
                   {p.name}
                 </p>
-                <img src={p.image} alt={p.name} width="50px" />
+                <img src={p.image} alt={p.name} />
                 <span>{`R$ ${p.price.toFixed(2).toString().replace('.', ',')}`}</span>
                 <button
                   onClick={onClickFunction}
@@ -161,7 +161,7 @@ export default function Ap() {
                 <p>
                   {p.name}
                 </p>
-                <img src={p.image} alt={p.name} width="50px" />
+                <img src={p.image} alt={p.name} />
                 <span>{`R$ ${p.price.toFixed(2).toString().replace('.', ',')}`}</span>
                 <button
                   onClick={onClickFunction}
@@ -179,7 +179,7 @@ export default function Ap() {
               <p>
                 {p.name}
               </p>
-              <img src={p.image} alt={p.name} width="50px" />
+              <img src={p.image} alt={p.name} />
               <span>{`R$ ${p.price.toFixed(2).toString().replace('.', ',')}`}</span>
               <button
                 onClick={onClickFunction}
@@ -192,7 +192,7 @@ export default function Ap() {
               <p>
                 {p.name}
               </p>
-              <img src={p.image} alt={p.name} width="50px" />
+              <img src={p.image} alt={p.name} />
               <span>{`R$ ${p.price.toFixed(2).toString().replace('.', ',')}`}</span>
               <button
                 data-testid={`add-${p.id}-product`}
