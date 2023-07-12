@@ -1,6 +1,9 @@
 import { styled } from 'styled-components';
 
 export const Div = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 200vh;
 
   & > div:nth-child(3) {
     display: flex;

@@ -1,8 +1,11 @@
 import React from 'react';
 
+// Css
+import { Footer } from '../styles/components/Footer.style';
+
 export default function CFooter() {
   return (
-    <footer>
+    <Footer>
       <article>
         <div>
           <h4>Horário de atendimento</h4>
@@ -23,6 +26,6 @@ export default function CFooter() {
       <article>
         <p>COPYRIGHT © - A+ Distribuidora</p>
       </article>
-    </footer>
+    </Footer>
   );
 }
