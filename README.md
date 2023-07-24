@@ -40,7 +40,6 @@ Para executar o projeto, você precisará ter as seguintes dependências instala
     "jest-localstorage-mock": "^2.4.26",
     "vite": "^4.3.9"
   }
-}
 ```
 
 ### Funcionalidades
