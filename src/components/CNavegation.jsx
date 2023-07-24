@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 // Mock
 import productsMock from '../mock';
 
+// Css
+import { Nav } from '../styles/components/Navegation.style';
+
 export default function CNavegation({ setType }) {
   const [productTypes, setProductsTypes] = useState([]);
 
@@ -22,16 +25,16 @@ export default function CNavegation({ setType }) {
     const { outerText } = target;
 
     switch (outerText) {
-    case 'Pressão':
+    case 'PRESSÃO':
       setType(outerText);
       break;
-    case 'Equipo':
+    case 'EQUIPO':
       setType(outerText);
       break;
-    case 'Luvas':
+    case 'LUVAS':
       setType(outerText);
       break;
-    case 'Seringa':
+    case 'SERINGA':
       setType(outerText);
       break;
     default:
@@ -40,7 +43,7 @@ export default function CNavegation({ setType }) {
   };
 
   return (
-    <nav
+    <Nav
       data-testid="navegation-container"
     >
       <div>
@@ -52,12 +55,12 @@ export default function CNavegation({ setType }) {
               onClick={onClickFunction}
               data-testid={`type-product-${t}`}
             >
-              {t}
+              {t.toUpperCase()}
             </button>
           );
         })}
       </div>
-    </nav>
+    </Nav>
   );
 }
 

@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// Css
+import { Header } from '../styles/components/Header.style';
+
 export default function CHeader() {
   return (
-    <header
+    <Header
       data-testid="header-container"
     >
       <div>
@@ -11,7 +14,7 @@ export default function CHeader() {
           to="/"
         >
           <img
-            src="https://cdn-icons-png.flaticon.com/512/2966/2966327.png"
+            src="https://cdn-icons-png.flaticon.com/512/4320/4320350.png"
             alt="logo"
             width="50px"
             data-testid="header-container-logo"
@@ -49,6 +52,6 @@ export default function CHeader() {
           />
         </Link>
       </div>
-    </header>
+    </Header>
   );
 }

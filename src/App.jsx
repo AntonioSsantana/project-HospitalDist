@@ -8,6 +8,9 @@ import {
 // Mock
 import productsMock from './mock';
 
+// Css
+import { Div } from './styles/pages/App.style';
+
 export default function Ap() {
 
   const [products, setproducts] = useState([]);
@@ -80,8 +83,12 @@ export default function Ap() {
   };
 
   return (
-    <div>
+    <Div>
       <CHeader />
+      <CNavegation
+        selectedType={selectedType}
+        setType={setType}
+      />
       <div>
         <input
           type="text"
@@ -91,12 +98,8 @@ export default function Ap() {
           onChange={onChangeFunction}
         />
       </div>
-      <CNavegation
-        selectedType={selectedType}
-        setType={setType}
-      />
       <main>
-        {selectedType === 'Pressão' ? (
+        {selectedType === 'PRESSÃO' ? (
           products
             .filter((p) => p.type === 'Pressão')
             .map((p, index) => (
@@ -104,7 +107,7 @@ export default function Ap() {
                 <p>
                   {p.name}
                 </p>
-                <img src={p.image} alt={p.name} width="50px" />
+                <img src={p.image} alt={p.name} />
                 <span>
                   {`R$ ${p.price.toFixed(2).toString().replace('.', ',')}`}
                 </span>
@@ -115,7 +118,7 @@ export default function Ap() {
                 </button>
               </article>
             ))
-        ) : selectedType === 'Equipo' ? (
+        ) : selectedType === 'EQUIPO' ? (
           products
             .filter((p) => p.type === 'Equipo')
             .map((p, index) => (
@@ -123,7 +126,7 @@ export default function Ap() {
                 <p>
                   {p.name}
                 </p>
-                <img src={p.image} alt={p.name} width="50px" />
+                <img src={p.image} alt={p.name} />
                 <span>{`R$ ${p.price.toFixed(2).toString().replace('.', ',')}`}</span>
                 <button
                   onClick={onClickFunction}
@@ -132,7 +135,7 @@ export default function Ap() {
                 </button>
               </article>
             ))
-        ) : selectedType === 'Luvas' ? (
+        ) : selectedType === 'LUVAS' ? (
           products
             .filter((p) => p.type === 'Luvas')
             .map((p, index) => (
@@ -141,7 +144,7 @@ export default function Ap() {
                 <p>
                   {p.name}
                 </p>
-                <img src={p.image} alt={p.name} width="50px" />
+                <img src={p.image} alt={p.name} />
                 <span>{`R$ ${p.price.toFixed(2).toString().replace('.', ',')}`}</span>
                 <button
                   onClick={onClickFunction}
@@ -150,7 +153,7 @@ export default function Ap() {
                 </button>
               </article>
             ))
-        ) : selectedType === 'Seringa' ? (
+        ) : selectedType === 'SERINGA' ? (
           products
             .filter((p) => p.type === 'Seringa')
             .map((p, index) => (
@@ -158,7 +161,7 @@ export default function Ap() {
                 <p>
                   {p.name}
                 </p>
-                <img src={p.image} alt={p.name} width="50px" />
+                <img src={p.image} alt={p.name} />
                 <span>{`R$ ${p.price.toFixed(2).toString().replace('.', ',')}`}</span>
                 <button
                   onClick={onClickFunction}
@@ -176,7 +179,7 @@ export default function Ap() {
               <p>
                 {p.name}
               </p>
-              <img src={p.image} alt={p.name} width="50px" />
+              <img src={p.image} alt={p.name} />
               <span>{`R$ ${p.price.toFixed(2).toString().replace('.', ',')}`}</span>
               <button
                 onClick={onClickFunction}
@@ -189,7 +192,7 @@ export default function Ap() {
               <p>
                 {p.name}
               </p>
-              <img src={p.image} alt={p.name} width="50px" />
+              <img src={p.image} alt={p.name} />
               <span>{`R$ ${p.price.toFixed(2).toString().replace('.', ',')}`}</span>
               <button
                 data-testid={`add-${p.id}-product`}
@@ -201,6 +204,6 @@ export default function Ap() {
           )))}
       </main>
       <CFooter />
-    </div>
+    </Div>
   );
 }

@@ -1,8 +1,11 @@
 import React from 'react';
 
+// Css
+import { Footer } from '../styles/components/Footer.style';
+
 export default function CFooter() {
   return (
-    <footer>
+    <Footer>
       <article>
         <div>
           <h4>Horário de atendimento</h4>
@@ -11,18 +14,19 @@ export default function CFooter() {
         </div>
         <div>
           <h4>TELEFONE DE CONTATO</h4>
-          <p>{'(11) 94002-8922'}</p>
+          <p>{'(xx) xxxxx-xxxx'}</p>
         </div>
       </article>
       <article>
         <div>
-          <h4>SAIBA MAIS</h4>
           <h4>Redes Sociais</h4>
+          <img src="https://cdn-icons-png.flaticon.com/512/20/20673.png" alt="facebook" />
+          <img src="https://cdn-icons-png.flaticon.com/512/1400/1400829.png" alt="instagram" />
         </div>
       </article>
       <article>
         <p>COPYRIGHT © - A+ Distribuidora</p>
       </article>
-    </footer>
+    </Footer>
   );
 }
